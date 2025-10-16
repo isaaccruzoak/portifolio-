@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Isaac Dev — Desenvolvedor Front-end</title>
+  <meta name="description" content="Portfólio de Isaac — Desenvolvedor Front-end (HTML, CSS, JavaScript, React, etc.)" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#4da6ff;
+      --glass: rgba(255,255,255,0.04);
+    }
+
+    body{background:linear-gradient(180deg,var(--bg),#071021);color:#e6eef8;overflow-x:hidden}
+
+    header{position:fixed;left:0;right:0;top:16px;display:flex;justify-content:center;pointer-events:none}
+    .nav-wrap{width:min(1100px,94%);display:flex;justify-content:space-between;align-items:center;gap:12px;pointer-events:auto}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3bb0ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;box-shadow:0 6px 20px rgba(77,166,255,0.12)}
+    nav a{color:#cfe9ff;text-decoration:none;margin-left:18px;font-weight:600;font-size:14px}
+    .cta{background:linear-gradient(90deg,var(--accent),#6fc1ff);padding:8px 14px;border-radius:10px;color:#022;font-weight:700;text-decoration:none}
+
+    .hero{min-height:100vh;display:grid;align-items:center;place-items:center;padding:80px 20px}
+    .hero-inner{width:min(1100px,96%);display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
+
+    .intro h1{font-size:clamp(28px,4.6vw,52px);line-height:1.02;margin-bottom:12px}
+    .intro h1 .name{color:var(--accent)}
+    .intro p{color:var(--muted);margin-bottom:20px}
+
+    .buttons{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:var(--glass);backdrop-filter: blur(6px);cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#6fc1ff);color:#022;font-weight:700}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 30px rgba(2,6,23,0.6)}
+    .me{display:flex;gap:14px;align-items:center}
+    .avatar{width:86px;height:86px;border-radius:14px;background:linear-gradient(180deg,#0b1220,#072033);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .stat{color:var(--muted);font-size:13px}
+
+    section.projects{padding:60px 20px}
+    .projects-inner{width:min(1100px,96%);margin:0 auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin-bottom:8px}
+    .project p{color:var(--muted);font-size:13px}
+
+    footer{padding:40px 20px;color:var(--muted);text-align:center}
+
+    .float{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;padding-bottom:40px}.card{order:2}.intro{order:1}}
+
+    .bg-blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;filter:blur(60px);opacity:0.45}
+    .blob{position:absolute;border-radius:50%;mix-blend-mode:screen}
+    .b1{width:420px;height:420px;left:-80px;top:-40px;background:linear-gradient(135deg,var(--accent),#7dd1ff)}
+    .b2{width:300px;height:300px;right:-60px;bottom:60px;background:linear-gradient(135deg,#8f7bff,#5ddcff)}
+
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+  </div>
+
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="logo">ID</div>
+        <div style="line-height:1">
+          <div style="font-weight:700">Isaac Dev</div>
+          <div style="font-size:12px;color:var(--muted)">Desenvolvedor Front‑end</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a class="cta" href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="intro">
+          <h1>Olá, eu sou <span class="name">Isaac</span> — <span style="color:var(--accent);">Desenvolvedor Front-end</span></h1>
+          <p>Crio interfaces bonitas, rápidas e acessíveis com HTML, CSS e JavaScript. Trabalho com animações, responsividade e experiência do usuário.</p>
+          <div class="buttons">
+            <button class="btn btn-primary" onclick="scrollToSection('projetos')">Ver Projetos</button>
+            <a class="btn" href="https://wa.me/5561981785124?text=Olá%20Isaac!%20Vim%20pelo%20seu%20portfólio." target="_blank">Falar no WhatsApp</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:13px">Tecnologias: HTML • CSS • JavaScript • React • Next.js • Tailwind</div>
+        </div>
+
+        <aside class="card float" aria-label="perfil">
+          <div class="me">
+            <div class="avatar">ID</div>
+            <div>
+              <div style="font-weight:700">Isaac Dev</div>
+              <div class="stat">Desenvolvedor Front-end</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:14px">
+            <div style="flex:1">
+              <div style="font-weight:700">12+</div>
+              <div class="muted" style="font-size:12px">Projetos</div>
+            </div>
+            <div style="flex:1">
+              <div style="font-weight:700">4+</div>
+              <div class="muted" style="font-size:12px">Anos</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <a class="btn" href="#projetos">Portfólio</a>
+            <a class="btn" href="https://wa.me/5561981785124?text=Olá%20Isaac!%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank">WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projetos" class="projects">
+      <div class="projects-inner">
+        <h2 style="margin-bottom:18px">Projetos</h2>
+        <div class="grid">
+          <article class="project">
+            <h3>Projeto 1 — Landing interativa</h3>
+            <p class="muted">Landing page com animações, hero dinâmico e formulários.</p>
+          </article>
+          <article class="project">
+            <h3>Projeto 2 — SPA React</h3>
+            <p class="muted">Aplicação single-page com roteamento e componentes reutilizáveis.</p>
+          </article>
+          <article class="project">
+            <h3>Projeto 3 — E-commerce</h3>
+            <p class="muted">Front-end responsivo integrado a API em Node/Python.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" style="padding:40px 20px">
+      <div style="width:min(1100px,96%);margin:0 auto">
+        <h2>Sobre mim</h2>
+        <p class="muted" style="margin-top:12px">Sou Isaac, desenvolvedor front-end focado em criar experiências interativas, performáticas e com atenção à acessibilidade. Gosto de transformar ideias em interfaces reais.</p>
+      </div>
+    </section>
+
+    <section id="contato" style="padding:40px 20px">
+      <div style="width:min(800px,96%);margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+        <h2>Contato</h2>
+        <p class="muted" style="margin-bottom:12px">Quer trabalhar comigo? Envie uma mensagem pelo formulário ou fale direto no WhatsApp!</p>
+        <form onsubmit="sendWhatsApp(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input name="nome" placeholder="Seu nome" required style="padding:12px;border-radius:8px;background:#071022;border:1px solid rgba(255,255,255,0.03);color:inherit">
+            <input name="email" type="email" placeholder="Seu email" required style="padding:12px;border-radius:8px;background:#071022;border:1px solid rgba(255,255,255,0.03);color:inherit">
+          </div>
+          <textarea name="mensagem" placeholder="Mensagem" required style="width:100%;margin-top:10px;padding:12px;border-radius:8px;background:#071022;border:1px solid rgba(255,255,255,0.03);color:inherit;min-height:120px"></textarea>
+          <div style="display:flex;justify-content:flex-end;margin-top:10px">
+            <button class="btn btn-primary" type="submit">Enviar pelo WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Feito por Isaac Dev • Desenvolvedor Front‑end</div>
+    <div style="margin-top:6px;color:var(--muted);font-size:13px">Deseja personalizar cores, fontes ou exportar para GitHub? Peça que eu faça as mudanças.</div>
+  </footer>
+
+  <script>
+    function scrollToSection(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function sendWhatsApp(e){
+      e.preventDefault();
+      const f = e.target;
+      const nome = encodeURIComponent(f.nome.value);
+      const email = encodeURIComponent(f.email.value);
+      const msg = encodeURIComponent(f.mensagem.value);
+      const url = `https://wa.me/5561981785124?text=Olá%20Isaac!%20Sou%20${nome}%20(${email})%20e%20tenho%20a%20seguinte%20mensagem:%20${msg}`;
+      window.open(url, '_blank');
+      f.reset();
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.querySelectorAll('.project').forEach((p,i)=>{
+            p.style.opacity = 0;
+            p.style.transform = 'translateY(20px)';
+            setTimeout(()=>{p.style.transition='all 520ms cubic-bezier(.2,.9,.2,1)';p.style.opacity=1;p.style.transform='translateY(0)';}, i*120);
+          });
+          obs.disconnect();
+        }
+      });
+    },{threshold:0.2});
+
+    obs.observe(document.querySelector('.projects-inner'));
+  </script>
+</body>
+</html>
